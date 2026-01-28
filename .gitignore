@@ -1,0 +1,26 @@
+# Sensitive files - DO NOT COMMIT
+**/secret*
+**/private*
+**/*.pem
+**/*.key
+
+# SSH keys
+.ssh/
+
+# Neovim generated files
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/.luarc.json
+nvim/.config/nvim/.neoconf.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Logs
+*.log

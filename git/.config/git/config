@@ -1,0 +1,38 @@
+[user]
+    name = Schalk Conradie
+    email = schalkuz.sc@gmail.com
+
+[credential]
+    helper = osxkeychain
+
+[credential "https://dev.azure.com"]
+    useHttpPath = true
+    azureAuthority = AzureCli
+
+[credential "azrepos:org/ec-projects"]
+    azureAuthority = https://login.microsoftonline.com/961b8f6e-3902-49b5-b679-5beabfc73016
+    username = schalk.conradie@ec.co.za
+
+[init]
+    defaultBranch = main
+
+[core]
+    excludesfile = ~/.config/git/ignore
+    editor = nvim
+
+[pull]
+    rebase = false
+
+[push]
+    autoSetupRemote = true
+
+[diff]
+    tool = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
