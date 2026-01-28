@@ -80,6 +80,9 @@ alias prox="proxychains4 -q -f ~/.proxychains/proxychains.conf"
 # Other work tools
 alias wr="go run ~/Code/personal/PublisherTUI/cmd/d365tui/"
 
+# Yazi
+alias yy="yazi"
+
 # ============================================================================
 # TMUX
 # ============================================================================
