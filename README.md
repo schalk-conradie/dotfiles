@@ -7,7 +7,7 @@ Clean, XDG-compliant dotfiles managed with GNU Stow.
 ```
 dotfiles/
 ├── zsh/              # Shell configuration
-├── git/              # Git config  
+├── git/              # Git config
 ├── ghostty/          # Terminal config
 ├── tmux/             # Tmux config
 ├── starship/         # Prompt config
@@ -20,25 +20,29 @@ dotfiles/
 ## Fresh Install (New Mac)
 
 ### 1. Install Homebrew
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 ### 2. Install Essential Tools
+
 ```bash
 brew install stow mise starship \
   zsh-autosuggestions zsh-syntax-highlighting \
-  eza zoxide bat tmux neovim git-delta lazygit
+  eza zoxide bat tmux neovim git-delta lazygit ghostty
 ```
 
 ### 3. Clone Dotfiles
+
 ```bash
-git clone <your-repo-url> ~/dotfiles
+git clone https://github.com/schalk-conradie/dotfiles ~/dotfiles
 cd ~/dotfiles
 ```
 
 ### 4. Deploy Configs with Stow
+
 ```bash
 # Stow all packages
 stow -v zsh
@@ -54,6 +58,7 @@ cp home/.zshenv ~/.zshenv
 ```
 
 ### 5. Install Runtime Versions with Mise
+
 ```bash
 # Node
 mise install node@lts node@latest
@@ -69,11 +74,13 @@ mise use --global go@latest python@latest
 ```
 
 ### 6. Restart Shell
+
 ```bash
 exec zsh
 ```
 
 ### 7. Install Tmux Plugins
+
 ```bash
 tmux
 # Press: Ctrl+A + I (capital i) to install plugins
@@ -147,22 +154,26 @@ git commit -am "Remove packagename"
 ## Tools & Features
 
 ### Shell
+
 - **Zsh** with Starship prompt
 - **Fast startup**: ~0.09s (vs 0.58s with Oh-My-Zsh)
 - **Plugins**: autosuggestions, syntax-highlighting
 - **Modern tools**: eza, zoxide, bat
 
 ### Version Management
+
 - **mise**: Manages Node, Go, Python, .NET
 - Per-project versions via `.mise.toml`
 - No more NVM/GVM/rbenv mess
 
 ### Terminal
+
 - **Ghostty**: GPU-accelerated, 90% transparency
 - **Tmux**: Ctrl+A prefix, vim-style navigation
 - **No conflicts** with nvim keybindings
 
 ### Editor
+
 - **Neovim** with LazyVim
 - Bob for version management
 
@@ -216,7 +227,7 @@ Ctrl+A [     # Copy mode (vim keys)
 cd ~/Code/work/legacy-project
 mise use dotnet-core@8 node@20
 
-cd ~/Code/work/new-project  
+cd ~/Code/work/new-project
 mise use dotnet-core@10 node@latest
 
 # Versions auto-switch when you cd!
@@ -227,6 +238,7 @@ mise use dotnet-core@10 node@latest
 ## Troubleshooting
 
 ### Shell not loading config
+
 ```bash
 # Check .zshenv exists
 ls -la ~/.zshenv
@@ -237,6 +249,7 @@ source ~/.config/zsh/.zshrc
 ```
 
 ### Stow conflicts
+
 ```bash
 # If file already exists
 rm ~/.config/conflicting-file
@@ -244,6 +257,7 @@ stow -v packagename
 ```
 
 ### Mise not activating
+
 ```bash
 # Check it's in .zshrc
 grep "mise activate" ~/.config/zsh/.zshrc
@@ -253,6 +267,7 @@ exec zsh
 ```
 
 ### Tmux plugins not loading
+
 ```bash
 # Install TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -265,6 +280,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ## Backup
 
 ### SSH Keys (Do Separately!)
+
 ```bash
 # Encrypted backup
 tar -czf - ~/.ssh | openssl enc -aes-256-cbc -pbkdf2 -out ssh-backup.tar.gz.enc
@@ -274,6 +290,7 @@ cp -r ~/.ssh /path/to/secure/location/
 ```
 
 ### Important Locations
+
 - `~/.ssh/` - SSH keys (NOT in dotfiles)
 - `~/Code/` - Your projects
 - `~/.config/mise/config.toml` - Global mise versions
@@ -283,6 +300,7 @@ cp -r ~/.ssh /path/to/secure/location/
 ## What's NOT Included
 
 These should be backed up separately:
+
 - SSH keys (`~/.ssh/`)
 - API tokens/secrets
 - Proxychains config (if contains credentials)
@@ -293,6 +311,7 @@ These should be backed up separately:
 ## XDG Compliance
 
 Following XDG Base Directory specification:
+
 - Config: `~/.config/`
 - Data: `~/.local/share/`
 - Cache: `~/.cache/`
