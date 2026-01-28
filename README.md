@@ -31,7 +31,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```bash
 brew install stow mise starship \
   zsh-autosuggestions zsh-syntax-highlighting \
-  eza zoxide bat tmux neovim git-delta lazygit ghostty
+  eza zoxide bat tmux neovim git-delta lazygit ghostty fzf ripgrep fd curl
+```
+
+### 2.1 Install Nerd Font
+
+```bash
+brew install --cask font-jetbrains-mono-nerd-font
 ```
 
 ### 3. Clone Dotfiles
@@ -55,6 +61,13 @@ stow -v nvim
 
 # Copy .zshenv (stow doesn't handle home directory well)
 cp home/.zshenv ~/.zshenv
+```
+
+### OR Alternative to 4, use the makefile
+
+```bash
+cd ~/dotfiles
+make install
 ```
 
 ### 5. Install Runtime Versions with Mise

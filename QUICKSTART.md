@@ -3,12 +3,14 @@
 ## Daily Workflow
 
 ### 📝 Edit Config
+
 ```bash
 # Edit directly (it's symlinked!)
 nvim ~/.config/zsh/.zshrc
 ```
 
 ### 💾 Save Changes
+
 ```bash
 cd ~/dotfiles
 make sync    # Copy, commit
@@ -16,6 +18,7 @@ make push    # Push to remote
 ```
 
 ### ⬇️ Pull Updates
+
 ```bash
 cd ~/dotfiles
 make pull    # Pull and restow
@@ -66,7 +69,7 @@ stow -n zsh
 
 # 2. Install tools
 brew install stow mise starship zsh-autosuggestions zsh-syntax-highlighting \
-  eza zoxide bat tmux neovim git-delta lazygit
+  eza zoxide bat tmux neovim git-delta lazygit fzf ripgrep fd curl
 
 # 3. Clone dotfiles
 git clone git@github.com:yourusername/dotfiles.git ~/dotfiles
@@ -154,6 +157,7 @@ stow -R zsh    # Re-apply symlinks
 ## Troubleshooting
 
 ### Config not updating?
+
 ```bash
 # Check if symlinked
 ls -la ~/.config/zsh/.zshrc
@@ -165,6 +169,7 @@ stow -R zsh
 ```
 
 ### Stow conflicts?
+
 ```bash
 # Remove conflicting file
 rm ~/.config/zsh/.zshrc
@@ -174,6 +179,7 @@ stow -v zsh
 ```
 
 ### Mise not working?
+
 ```bash
 # Activate in current shell
 eval "$(mise activate zsh)"
@@ -187,6 +193,7 @@ exec zsh
 ## Backup Important Files
 
 ### SSH Keys (NOT in dotfiles!)
+
 ```bash
 # Encrypted backup
 tar -czf - ~/.ssh | openssl enc -aes-256-cbc -pbkdf2 -out ssh-backup.tar.gz.enc
@@ -197,6 +204,7 @@ chmod 700 ~/.ssh && chmod 600 ~/.ssh/id_* && chmod 644 ~/.ssh/*.pub
 ```
 
 ### Projects
+
 ```bash
 # Your code is in ~/Code - back it up separately!
 rsync -av ~/Code /path/to/backup/
