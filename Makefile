@@ -14,6 +14,7 @@ install: ## Deploy all dotfiles (fresh install)
 	stow -v ghostty
 	stow -v tmux
 	stow -v starship
+	stow -v yazi
 	stow -v nvim
 	cp home/.zshenv ~/.zshenv
 	@echo "✅ Dotfiles deployed! Run 'exec zsh' to reload shell."
@@ -26,6 +27,7 @@ update: ## Copy current configs to dotfiles repo
 	cp ~/.config/ghostty/config ghostty/.config/ghostty/
 	cp ~/.config/tmux/tmux.conf tmux/.config/tmux/
 	cp ~/.config/starship.toml starship/.config/
+	cp -r ~/.config/yazi/* yazi/.config/yazi/
 	cp ~/.zshenv home/.zshenv
 	@echo "✅ Configs updated in ~/dotfiles"
 
@@ -39,7 +41,7 @@ pull: ## Pull latest changes and restow
 	@echo "⬇️  Pulling latest changes..."
 	git pull
 	@echo "🔗 Re-stowing packages..."
-	stow -R zsh git ghostty tmux starship nvim
+	stow -R zsh git ghostty tmux starship yazi nvim
 	@echo "✅ Dotfiles updated!"
 
 push: sync ## Sync and push to remote
@@ -54,12 +56,13 @@ test: ## Test stow without making changes
 	stow -n -v ghostty
 	stow -n -v tmux
 	stow -n -v starship
+	stow -n -v yazi
 	stow -n -v nvim
 	@echo "✅ Test complete (no changes made)"
 
 clean: ## Remove all symlinks
 	@echo "🧹 Removing symlinks..."
-	stow -D zsh git ghostty tmux starship nvim
+	stow -D zsh git ghostty tmux starship yazi nvim
 	@echo "✅ Symlinks removed"
 
 status: ## Show git status

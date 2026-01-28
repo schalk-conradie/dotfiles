@@ -11,6 +11,7 @@ dotfiles/
 ├── ghostty/          # Terminal config
 ├── tmux/             # Tmux config
 ├── starship/         # Prompt config
+├── yazi/             # File manager config
 ├── nvim/             # Neovim config (LazyVim)
 ├── home/             # Files that go in ~/
 └── scripts/          # Helper scripts
@@ -45,6 +46,7 @@ stow -v git
 stow -v ghostty
 stow -v tmux
 stow -v starship
+stow -v yazi
 stow -v nvim
 
 # Copy .zshenv (stow doesn't handle home directory well)
