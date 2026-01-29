@@ -1,0 +1,6 @@
+[submodule "ghostty/.config/ghostty/shaders"]
+	path = ghostty/.config/ghostty/shaders
+	url = https://github.com/0xhckr/ghostty-shaders.git
+[submodule "yazi/.config/yazi/plugins/lazygit.yazi"]
+	path = yazi/.config/yazi/plugins/lazygit.yazi
+	url = https://github.com/Lil-Dank/lazygit.yazi.git
