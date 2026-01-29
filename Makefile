@@ -16,6 +16,7 @@ install: ## Deploy all dotfiles (fresh install)
 	stow -v starship
 	stow -v yazi
 	stow -v nvim
+	stow -v zellij
 	cp home/.zshenv ~/.zshenv
 	@echo "INFO: Dotfiles deployed! Run 'exec zsh' to reload shell."
 
@@ -29,6 +30,7 @@ update: ## Copy current configs to dotfiles repo and create symlinks
 	cp ~/.config/starship.toml starship/.config/ 2>/dev/null || true
 	cp -r ~/.config/yazi/* yazi/.config/yazi/ 2>/dev/null || true
 	cp -r ~/.config/nvim/* nvim/.config/nvim/ 2>/dev/null || true
+	cp -r ~/.config/zellij/* zellij/.config/zellij/ 2>/dev/null || true
 	cp ~/.zshenv home/.zshenv 2>/dev/null || true
 	@# Now adopt to replace with symlinks
 	@echo "🔗 Creating symlinks..."
@@ -62,6 +64,7 @@ test: ## Test stow without making changes
 	stow -n -v starship
 	stow -n -v yazi
 	stow -n -v nvim
+	stow -n -v zellij
 	@echo "INFO: Test complete (no changes made)"
 
 clean: ## Remove all symlinks

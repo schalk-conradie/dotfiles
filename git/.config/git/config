@@ -1,6 +1,6 @@
 [user]
     name = Schalk Conradie
-    email = schalkuz.sc@gmail.com
+    email = schalk.conradie@ec.co.za
 
 [credential]
     helper = osxkeychain
@@ -17,11 +17,12 @@
     defaultBranch = main
 
 [core]
+    fsmonitor = true
     excludesfile = ~/.config/git/ignore
     editor = nvim
 
 [pull]
-    rebase = false
+    rebase = true
 
 [push]
     autoSetupRemote = true
@@ -36,3 +37,18 @@
     navigate = true
     light = false
     side-by-side = true
+
+[fetch]
+    prune = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[branch]
+    sort = -committerdate
+
+[rerere]
+    enabled = true
+
+[commit]
+    verbose = true
