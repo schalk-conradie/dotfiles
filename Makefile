@@ -19,17 +19,21 @@ install: ## Deploy all dotfiles (fresh install)
 	cp home/.zshenv ~/.zshenv
 	@echo "✅ Dotfiles deployed! Run 'exec zsh' to reload shell."
 
-update: ## Copy current configs to dotfiles repo
+update: ## Copy current configs to dotfiles repo and create symlinks
 	@echo "📦 Updating dotfiles from system..."
-	cp ~/.config/zsh/.zshrc zsh/.config/zsh/
-	cp ~/.config/git/config git/.config/git/
-	cp ~/.config/git/ignore git/.config/git/
-	cp ~/.config/ghostty/config ghostty/.config/ghostty/
-	cp ~/.config/tmux/tmux.conf tmux/.config/tmux/
-	cp ~/.config/starship.toml starship/.config/
-	cp -r ~/.config/yazi/* yazi/.config/yazi/
-	cp ~/.zshenv home/.zshenv
-	@echo "✅ Configs updated in ~/dotfiles"
+	@# Copy any new files first
+	cp -r ~/.config/zsh/* zsh/.config/zsh/ 2>/dev/null || true
+	cp -r ~/.config/git/* git/.config/git/ 2>/dev/null || true
+	cp -r ~/.config/ghostty/* ghostty/.config/ghostty/ 2>/dev/null || true
+	cp -r ~/.config/tmux/* tmux/.config/tmux/ 2>/dev/null || true
+	cp ~/.config/starship.toml starship/.config/ 2>/dev/null || true
+	cp -r ~/.config/yazi/* yazi/.config/yazi/ 2>/dev/null || true
+	cp -r ~/.config/nvim/* nvim/.config/nvim/ 2>/dev/null || true
+	cp ~/.zshenv home/.zshenv 2>/dev/null || true
+	@# Now adopt to replace with symlinks
+	@echo "🔗 Creating symlinks..."
+	stow --adopt zsh git ghostty tmux starship yazi nvim 2>/dev/null || true
+	@echo "✅ Configs updated and symlinked"
 
 sync: update ## Update and commit changes
 	@echo "💾 Committing changes..."
