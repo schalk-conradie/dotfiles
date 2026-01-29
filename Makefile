@@ -34,7 +34,7 @@ update: ## Copy current configs to dotfiles repo and create symlinks
 	cp ~/.zshenv home/.zshenv 2>/dev/null || true
 	@# Now adopt to replace with symlinks
 	@echo "🔗 Creating symlinks..."
-	stow --adopt zsh git ghostty tmux starship yazi nvim 2>/dev/null || true
+	stow --adopt zsh git ghostty tmux starship yazi nvim zellij 2>/dev/null || true
 	@echo "INFO: Configs updated and symlinked"
 
 sync: update ## Update and commit changes
@@ -47,7 +47,7 @@ pull: ## Pull latest changes and restow
 	@echo "INFO: Pulling latest changes..."
 	git pull
 	@echo "PROCESS: Re-stowing packages..."
-	stow -R zsh git ghostty tmux starship yazi nvim
+	stow -R zsh git ghostty tmux starship yazi nvim zellij
 	@echo "INFO: Dotfiles updated!"
 
 push: sync ## Sync and push to remote
