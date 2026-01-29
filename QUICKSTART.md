@@ -71,8 +71,10 @@ stow -n zsh
 brew install stow mise starship zsh-autosuggestions zsh-syntax-highlighting \
   eza zoxide bat tmux neovim git-delta lazygit fzf ripgrep fd curl
 
-# 3. Clone dotfiles
-git clone git@github.com:yourusername/dotfiles.git ~/dotfiles
+# 3. Clone dotfiles with submodules
+git clone --recurse-submodules git@github.com:yourusername/dotfiles.git ~/dotfiles
+# Or if already cloned:
+cd ~/dotfiles && git submodule update --init --recursive
 
 # 4. Deploy
 cd ~/dotfiles
@@ -186,6 +188,24 @@ eval "$(mise activate zsh)"
 
 # Or restart
 exec zsh
+```
+
+---
+
+## Git Submodules
+
+This repo uses submodules for:
+- `ghostty/.config/ghostty/shaders` - Ghostty shader collection
+- `yazi/.config/yazi/plugins/lazygit.yazi` - Lazygit plugin for Yazi
+
+```bash
+# Update submodules to latest
+cd ~/dotfiles
+git submodule update --remote
+
+# Pull dotfiles + submodules
+git pull
+git submodule update --init --recursive
 ```
 
 ---
