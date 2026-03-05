@@ -1,4 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+scan_timeout = 50
+command_timeout = 5000
 
 format = """
 [](color_orange)\
@@ -50,32 +52,14 @@ style = "bg:color_orange fg:color_fg0"
 [os.symbols]
 Windows = "󰍲"
 Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
 Macos = "󰀵"
-Manjaro = ""
 Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
 Alpine = ""
-Amazon = ""
-Android = ""
-AOSC = ""
 Arch = "󰣇"
-Artix = "󰣇"
-EndeavourOS = ""
-CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 Pop = ""
-
-[username]
-show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
-format = '[ $user ]($style)'
 
 [directory]
 style = "fg:color_fg0 bg:color_yellow"
@@ -98,69 +82,38 @@ format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 [git_status]
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+ignore_submodules = true  # Speed up large repos
 
 [nodejs]
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[c]
-symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[cpp]
-symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+detect_extensions = ["js", "mjs", "cjs", "ts", "tsx", "jsx", "mts", "cts"]
+detect_files = ["package.json", ".nvmrc", ".node-version"]
+detect_folders = ["node_modules"]
 
 [golang]
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[php]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[java]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+detect_extensions = ["go"]
+detect_files = ["go.mod", "go.sum", "go.work"]
+detect_folders = ["Godeps", "vendor"]
 
 [python]
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+detect_extensions = ["py", "ipynb", "pyc", "pyo", "pyd"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile", "poetry.lock", "setup.cfg", "tox.ini", ".python-version", "manage.py"]
+detect_folders = ["__pycache__", ".venv", "venv", ".conda", "env"]
 
 [docker_context]
 symbol = ""
 style = "bg:color_bg3"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
-
-[conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
-
-[pixi]
-style = "bg:color_bg3"
-format = '[[ $symbol( $version)( $environment) ](fg:color_fg0 bg:color_bg3)]($style)'
+detect_files = ["Dockerfile", "docker-compose.yml", "compose.yml", "docker-compose.yaml", "compose.yaml", ".dockerignore"]
+detect_folders = [".docker"]
 
 [time]
 disabled = false

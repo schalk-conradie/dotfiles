@@ -1,9 +1,4 @@
 # ============================================================================
-# THEME
-# ============================================================================
-theme = tokyonight
-
-# ============================================================================
 # FONT
 # ============================================================================
 font-family = "JetBrainsMonoNL Nerd Font"
@@ -17,8 +12,15 @@ window-padding-y = 12
 window-decoration = true
 
 # Transparency
-background-opacity = 0.90
-background-blur-radius = 30
+background-image=~/Downloads/moonRising.png
+background-image-opacity = 0.05
+background-image-fit = cover
+
+fullscreen = true
+
+# Whether fullscreen uses the macOS "native" fullscreen (macOS only)
+macos-non-native-fullscreen = false
+
 
 # ============================================================================
 # SHELL INTEGRATION
@@ -38,3 +40,6 @@ cursor-style-blink = true
 macos-option-as-alt = true
 mouse-hide-while-typing = true
 copy-on-select = true
+
+# Custom keybinds
+keybind = global:cmd+backquote=toggle_quick_terminal

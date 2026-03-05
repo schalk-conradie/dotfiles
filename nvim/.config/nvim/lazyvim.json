@@ -1,15 +1,15 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.copilot-native",
+    "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.coding.mini-comment",
     "lazyvim.plugins.extras.coding.nvim-cmp",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.fzf",
-    "lazyvim.plugins.extras.editor.harpoon2",
+    "lazyvim.plugins.extras.editor.mini-files",
+    "lazyvim.plugins.extras.editor.snacks_picker",
     "lazyvim.plugins.extras.formatting.biome",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
-    "lazyvim.plugins.extras.lang.dotnet",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.json",
@@ -19,7 +19,8 @@
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.test.core",
-    "lazyvim.plugins.extras.util.dot"
+    "lazyvim.plugins.extras.util.dot",
+    "lazyvim.plugins.extras.util.project"
   ],
   "install_version": 8,
   "news": {
